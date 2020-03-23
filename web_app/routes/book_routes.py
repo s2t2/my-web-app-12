@@ -23,4 +23,4 @@ def books():
         {"id": 2, "title": "Book 2"},
         {"id": 3, "title": "Book 3"},
     ] # todo: get from the database
-    return render_template("books.html")
+    return render_template("books.html", books=books)
