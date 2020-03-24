@@ -12,6 +12,7 @@ def create_app():
 
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///web_app_12.db"
     #app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////Users/mjr/Desktop/web-app-inclass-11/web_app_12.db"
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.init_app(app)
     migrate.init_app(app, db)
 
