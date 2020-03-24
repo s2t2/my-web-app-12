@@ -8,20 +8,26 @@ load_dotenv()
 
 API_KEY = os.getenv("BASILICA_API_KEY")
 
-print("---------")
-connection = basilica.Connection(API_KEY)
-print(type(connection)) #> <class 'basilica.Connection'>
+def basilica_api_client():
+    connection = basilica.Connection(API_KEY)
+    print(type(connection)) #> <class 'basilica.Connection'>
+    return connection
 
-print("---------")
-sentence = "Hello again"
-sent_embeddings = connection.embed_sentence(sentence)
-print(list(sent_embeddings))
+if __name__ == "__main__":
 
-print("---------")
-sentences = ["Hello world!", "How are you?"]
-print(sentences)
+    print("---------")
+    connection = basilica_api_client()
 
-embeddings = connection.embed_sentences(sentences)
-print("EMBEDDINGS...")
-print(type(embeddings))
-print(list(embeddings)) # [[0.8556405305862427, ...], ...]
+    print("---------")
+    sentence = "Hello again"
+    sent_embeddings = connection.embed_sentence(sentence)
+    print(list(sent_embeddings))
+
+    print("---------")
+    sentences = ["Hello world!", "How are you?"]
+    print(sentences)
+
+    embeddings = connection.embed_sentences(sentences)
+    print("EMBEDDINGS...")
+    print(type(embeddings))
+    print(list(embeddings)) # [[0.8556405305862427, ...], ...]
