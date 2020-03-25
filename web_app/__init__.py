@@ -14,8 +14,11 @@ from web_app.routes.stats_routes import stats_routes
 def create_app():
     app = Flask(__name__)
 
+    app.config["SECRET_KEY"] = "super secret" # todo: pass from env var (enables flash messaging)
     app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///web_app_12.db"
     #app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:////Users/mjr/Desktop/web-app-inclass-11/web_app_12.db"
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
     db.init_app(app)
     migrate.init_app(app, db)
 
