@@ -12,7 +12,8 @@ twitter_routes = Blueprint("twitter_routes", __name__)
 def store_twitter_user_data(screen_name):
     api = twitter_api_client()
     twitter_user = api.get_user(screen_name)
-    statuses = api.user_timeline(screen_name, tweet_mode="extended", count=150, exclude_replies=True, include_rts=False)
+    #statuses = api.user_timeline(screen_name, tweet_mode="extended", count=150, exclude_replies=True, include_rts=False)
+    statuses = api.user_timeline(screen_name, tweet_mode="extended", count=150)
     #return jsonify({"user": user._json, "tweets": [s._json for s in statuses]})
 
     db_user = User.query.get(twitter_user.id) or User(id=twitter_user.id)

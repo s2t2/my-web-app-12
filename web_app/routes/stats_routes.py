@@ -31,6 +31,10 @@ def predict():
     print("USER A", user_a.screen_name, len(user_a.tweets))
     print("USER B", user_b.screen_name, len(user_b.tweets))
     #breakpoint()
+    # take the same number of tweets for each user
+    #min_tweets = min(len(user_a.tweets), len(user_b.tweets))
+    #user_a_tweets = user_a_tweets[:min_tweets]
+    #user_b_tweets = user_b_tweets[:min_tweets]
 
     print("-----------------")
     print("TRAINING THE MODEL...")
