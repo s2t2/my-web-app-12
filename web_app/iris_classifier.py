@@ -1,4 +1,4 @@
-# web_app/classifier.py
+# web_app/iris_classifier.py
 
 import os
 import pickle
