@@ -1,7 +1,7 @@
 
 # web_app/routes/twitter_routes.py
 
-from flask import Blueprint, render_template, jsonify
+from flask import Blueprint, render_template, jsonify #, request
 
 from web_app.models import db, User, Tweet, parse_records
 from web_app.services.twitter_service import twitter_api_client
@@ -55,6 +55,10 @@ def store_twitter_user_data(screen_name):
 @twitter_routes.route("/users")
 @twitter_routes.route("/users.json")
 def list_users():
+    #if request.path.endswith(".json"):
+    #    return some json
+    #else:
+    #    render a template
     db_users = User.query.all()
     users = parse_records(db_users)
     return jsonify(users)
