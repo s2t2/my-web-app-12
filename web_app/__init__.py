@@ -17,10 +17,12 @@ from web_app.routes.stats_routes import stats_routes
 load_dotenv()
 
 DATABASE_URL = os.getenv("DATABASE_URL", default="sqlite:///web_app_12.db")
+SECRET_KEY = os.getenv("SECRET_KEY", default="super secret")
 
 def create_app():
     app = Flask(__name__)
 
+    app.config["SECRET_KEY"] = SECRET_KEY
     app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URL
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.init_app(app)
